@@ -22,10 +22,11 @@ export class UsersController {
     async createUser(@Body() newUser: User) {
         const result = await this.usersService.createUser(newUser);
         // console.log('Our new user : ', result);
-        return "Utilisateur ajouté avec succès : " + result;
+        return "Utilisateur ajouté avec succès : \n" + result;
     }
+
     @Patch(':id')
-    async updateUserr(@Param('id') id: Number, @Body() user: User): Promise<User> {
+    async updateUser(@Param('id') id: Number, @Body() user: User): Promise<User> {
         const userUpdated = await this.usersService.updateUser(id, user);
         return userUpdated;
     }
