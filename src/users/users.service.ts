@@ -57,4 +57,8 @@ export class UsersService {
         if (!updatedUser)       throw new NotFoundException('Could not find this user');
         return updatedUser;
     }
+
+    async deleteUser(id: Number) {
+        await this.userModel.deleteOne({ id: id }).exec();
+    }
 }
