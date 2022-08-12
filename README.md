@@ -10,8 +10,8 @@ Mise en place d'un serveur backend utilisant le framework NestJS (https://docs.n
 
 Le backend comporte deux modèles avec leurs contrôleurs et services :
 
-  . Un modèle *user* qui permet de gérer les utilisateurs
-  . Un modèle **product** qui permet de gérer les produits.
+  - Un modèle *user* qui permet de gérer les utilisateurs
+  - Un modèle **product** qui permet de gérer les produits.
   
 Le modèle **user** a les champs suivants : **_id**, **firstname**, **lastname**, **address**
 
