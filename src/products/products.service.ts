@@ -5,21 +5,21 @@ import { Product } from './interfaces/product.interface';
 export class ProductsService {
     products: Product[] = [
         {
-            _id: '1',
+            id: 1,
             name: 'Chaise',
             price: 15000,
             quantity: 2,
             image: ''
         },
         {
-            _id: '2',
+            id: 2,
             name: 'Sac à main',
             price: 25000,
             quantity: 1,
             image: ''
         },
         {
-            _id: '3',
+            id: 3,
             name: 'Fenêtre',
             price: 35000,
             quantity: 3,
@@ -29,6 +29,10 @@ export class ProductsService {
 
     getAllProducts(): Product[] {
         return this.products;
+    }
+
+    getProductById(id: number): Product {
+        return this.products[id];
     }
 
     createProduct(product: Product) {
