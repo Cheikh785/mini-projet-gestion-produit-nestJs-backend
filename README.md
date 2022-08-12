@@ -10,24 +10,25 @@ Mise en place d'un serveur backend utilisant le framework NestJS (https://docs.n
 
 Le backend comporte deux modèles avec leurs contrôleurs et services :
 
-  ● Un modèle *user* qui permet de gérer les utilisateurs
+  . Un modèle *user* qui permet de gérer les utilisateurs
+  . Un modèle **product** qui permet de gérer les produits.
   
-  ● Un modèle **product** qui permet de gérer les produits.
 Le modèle **user** a les champs suivants : **_id**, **firstname**, **lastname**, **address**
 
 Le modèle **produit** a les champs suivants : **_id**, **name**, **price**, **quantity**, **image**
 
 ## EndPoints
+
 ### User
-GET - /users       :  récupère l’ensemble des utilisateurs enregistrés
+    GET - /users       :  récupère l’ensemble des utilisateurs enregistrés
 
-GET - /user/:id    :  récupère un utilisateur par son id(identifiant)
+    GET - /user/:id    :  récupère un utilisateur par son id(identifiant)
 
-POST - /user       :  enregistre un utilisateur sur la base de données
+    POST - /user       :  enregistre un utilisateur sur la base de données
 
-PATCH - /user/:id  :  modifie un utilisateur par son id
+    PATCH - /user/:id  :  modifie un utilisateur par son id
 
-DELETE - /user/:id :  supprime un utilisateur par son id
+    DELETE - /user/:id :  supprime un utilisateur par son id
 
 ### Product
     GET - /products       :   récupère l’ensemble des produits enregistrés
