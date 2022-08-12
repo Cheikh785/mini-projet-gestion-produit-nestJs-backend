@@ -1,6 +1,6 @@
 <p align="center">
 <!--   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" style="margin-left: -7%; margin-right: 8%;" style="margin-left: -7%; margin-right: 8%;"/></a> -->
-  <a href="https://github.com/Cheikh785/mini-project-teamx-group-backend/" target="blank" style="margin-top: -6%;"><img src="teamx.png" width="400" alt="TeamX group Logo" style="margin-top: -6%;"/></a>
+  <a href="https://github.com/Cheikh785/mini-project-teamx-group-backend/" target="blank"><img src="teamx.png" width="500" alt="TeamX group Logo"/></a>
 </p>
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
