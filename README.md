@@ -40,7 +40,6 @@ Le modèle **produit** a les champs suivants : **_id**, **name**, **price**, **q
     DELETE - /product/:id :   supprime un produit
 
 -----------
-<br>
 
 ## Project Status 
       Complete 
