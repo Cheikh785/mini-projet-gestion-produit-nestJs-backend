@@ -31,10 +31,7 @@ export class UsersController {
     }
 
     @Delete(':id')
-    removeUser(@Param('id') id: Number): String {
-        if (this.usersService.deleteUser(id)) {
-            return 'User remove successfuly';
-        }
-        return 'User doesn\'t remove';
+    removeUser(@Param('id') id: Number) {
+        return this.usersService.deleteUser(id);
     }
 }

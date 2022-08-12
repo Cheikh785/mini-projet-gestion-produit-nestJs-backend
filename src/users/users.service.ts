@@ -28,10 +28,10 @@ export class UsersService {
         try {
             user = await this.userModel.find({id: id}).exec();
         } catch (error) {   
-            throw new NotFoundException('Could not find this user');
+            throw new NotFoundException('Could not find user');
         }
         if (!user) {
-            throw new NotFoundException('Could not find this user');
+            throw new NotFoundException('Could not find user');
         }
         return user;
     }
@@ -54,11 +54,15 @@ export class UsersService {
 
     async updateUser(id: Number, user: User): Promise<User> {
         const updatedUser   =   await this.userModel.findOneAndUpdate({id: id}, user, { new : true});
-        if (!updatedUser)       throw new NotFoundException('Could not find this user');
+        if (!updatedUser)       throw new NotFoundException('Could not find user');
         return updatedUser;
     }
 
     async deleteUser(id: Number) {
-        await this.userModel.deleteOne({ id: id }).exec();
+        const result = await this.userModel.deleteOne({ id: id }).exec();
+        if (result.deletedCount === 0) {
+            throw new NotFoundException('Could not find user');
+        }
+        return 'User remove successfuly';
     }
 }
