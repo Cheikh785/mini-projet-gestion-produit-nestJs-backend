@@ -18,8 +18,8 @@ export class UsersService {
         })); 
     }
 
-    async getMaxId(): Promise<Number> {
-        const maxId = await this.userModel.find().sort({id:-1}).limit(1).exec();
+    async getMaxId(): Promise<any> {
+        const maxId = await this.userModel.find().sort({id:-1}).limit(1);
         // Pour créer un nouvel utilisateur, puisque `id` n'est pas généré automatiquement, on recupère le plus grand `id`se trouvant dans la base de données et on l'incrémente de 1.
         if (maxId.length === 0) {
             return 1;

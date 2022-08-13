@@ -1,4 +1,6 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Res, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { diskStorage } from 'multer';
 import { Product } from './interfaces/product.interface';
 import { ProductsService } from './products.service';
 
@@ -25,6 +27,36 @@ export class ProductsController {
         // console.log('Our new product : ', result);
         return "Produit ajouté avec succès : \n" + result;
     }
+
+    @Post('upload-image')
+    @UseInterceptors(FileInterceptor('file', {
+        storage: diskStorage({
+            destination: './upload'
+            // filename: (req, file, cb) => {
+            //     const name = file.originalname.split('.')[0];
+            //     const fileExtension = file.originalname.split('.')[1];
+            //     const newFileName = name.split(' ').join('_') + '.' + fileExtension;
+            //     console.log(newFileName);
+            // }
+        })
+        // fileFilter: (req, file, cb) => {
+        //     if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)) {
+        //         return cb(Error('Format of file not supported'), false);
+        //     }
+        //     return cb(null, true);
+        // }
+    }))
+    public uploadImage(@UploadedFile() file: Express.Multer.File) {
+        console.log(file.originalname);
+    }
+
+    @Post('upload')
+    @UseInterceptors(FileInterceptor('file', {dest: '/tmp/files', }))
+    upload(@UploadedFile() file: {path: string}) {
+        // res.ok(file.path);
+        return {path: file.path};
+    }
+
 
     @Patch(':id')
     async updateProduct(@Param('id') id: Number, @Body() product: Product): Promise<Product> {
